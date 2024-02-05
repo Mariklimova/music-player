@@ -1,7 +1,20 @@
 class Player {
-    arr = [{ path: './assets/music/song1.mp3', artist: 'Mosquito Song', song: 'Queens Of The Stone Age' },
-    { path: './assets/music/song2.mp3', artist: 'Artist2', song: 'SONG_2' },
-    { path: './assets/music/song3.mp3', artist: 'Artist3', song: 'SONG_3' }];
+    arr = [{
+        path: './assets/music/Forestella__Despacito.mp3',
+        artist: 'Forestella',
+        song: 'Despacito'
+    },
+
+    {
+        path: './assets/music/Forestella__Bad_Romance.mp3',
+        artist: 'Forestella',
+        song: 'Bad_Romance'
+    },
+    {
+        path: './assets/music/Forestella__Shape_of_you.mp3',
+        artist: 'Forestella',
+        song: 'Shape_of_you'
+    }];
 
 
     bindActoin() {
@@ -11,6 +24,11 @@ class Player {
         const audio = document.querySelector('audio');
         const artist = document.querySelector('h1');
         const song = document.querySelector('h2');
+        const like = document.querySelector('.like');
+        // const progressBar = document.querySelector('.progress_bar');
+        // const progress = document.querySelectorK('.progress');
+        // const time = document. querySelector('time');
+
         let flag = false;
 
         let current_index_song = 0
@@ -34,8 +52,7 @@ class Player {
             song.textContent = this.arr[current_index_song].song;
             flag = true;
             audio.play();
-            play.style = ' background-image: url(./assets/pause.svg);';
-
+            play.style = ' background-image: url(./assets/pause.svg)';
         });
 
         next.addEventListener('click', () => {
@@ -46,10 +63,20 @@ class Player {
             song.textContent = this.arr[current_index_song].song;
             flag = true;
             audio.play();
-            play.style = ' background-image: url(./assets/pause.svg);';
+            play.style = ' background-image: url(./assets/pause.svg)';
 
 
         })
+        like.addEventListener('click', () => {
+            if (!flag) {
+                like.style = 'background-image: url(./assets/favBtn.svg)';
+                flag = true;
+            } else {
+                like.style = 'background-image: url(./assets/Icon.svg)';
+                flag = false;
+            }
+        })
+
     }
 }
 const player = new Player();

@@ -25,9 +25,10 @@ class Player {
         const artist = document.querySelector('h1');
         const song = document.querySelector('h2');
         const like = document.querySelector('.like');
-        // const progressBar = document.querySelector('.progress_bar');
-        // const progress = document.querySelectorK('.progress');
-        // const time = document. querySelector('time');
+        const progressLine = document.querySelector('.progress_line');
+        const progressIndicator = document.querySelector('.progress_indicator');
+        const time = document. querySelector('.time');
+        const repeat = document. querySelector('.repeat');
 
         let flag = false;
 

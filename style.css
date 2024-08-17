@@ -53,41 +53,48 @@ body {
     height: 20px;
     background-size: contain;
 }
-.wrapper .info .progress-bar{
+.progress_bar{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 25px;
 }
-.wrapper .info .progress-bar div {
+.progress_line {
     width:257px ;
     height: 3px;
     background: #DADADA;
+    cursor: pointer;
 }
-.wrapper .info .progress-bar p {
+.progress_indicator{
+    width: 0;
+    height: 3px;
+    background-color: #b45353;
+    cursor: pointer;
+}
+.time {
     color: #C1C1C1;
     font: 400 12px Inter;
 }
-.wrapper .navigation{
+.navigation{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 14px;
 }
-.wrapper .navigation .repeat {
+.navigation .repeat {
     background-image: url(./assets/repeatBtn.svg);
     background-repeat: no-repeat;
     width: 24px;
     height: 24px;
     background-size: contain;
 }
-.wrapper .navigation .main{
+.navigation .main{
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
 }
-.wrapper .navigation .previous {
+.main .previous {
     background-image: url(./assets/prevBtn.svg);
     background-repeat: no-repeat;
     width: 35px;
@@ -95,7 +102,7 @@ body {
     background-size: contain;
 }
 
-.wrapper .navigation .play {
+.main .play {
     background-image: url(./assets/playBtn.svg);
     background-repeat: no-repeat;
     width: 38px;
@@ -103,17 +110,18 @@ body {
     background-size: contain;
 }
 
-.wrapper .navigation .next {
+.main .next {
     background-image: url(./assets/nextBtn.svg);
     background-repeat: no-repeat;
     width: 35px;
     height: 35px;
     background-size: contain;
 }
-.wrapper .navigation .like {
+.navigation .like {
     background-image: url(./assets/favBtn.svg);
     background-repeat: no-repeat;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     background-size: contain;
+    cursor: pointer;
 }

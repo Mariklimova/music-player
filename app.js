@@ -27,8 +27,8 @@ class Player {
         const like = document.querySelector('.like');
         const progressLine = document.querySelector('.progress_line');
         const progressIndicator = document.querySelector('.progress_indicator');
-        const time = document. querySelector('.time');
-        const repeat = document. querySelector('.repeat');
+        const time = document.querySelector('.time');
+        const repeat = document.querySelector('.repeat');
 
         let flag = false;
 
@@ -45,6 +45,7 @@ class Player {
                 play.style = ' background-image: url(./assets/playBtn.svg);'
             }
         });
+
         previous.addEventListener('click', () => {
             if (current_index_song === 0) return;
             current_index_song--
@@ -67,17 +68,42 @@ class Player {
             play.style = ' background-image: url(./assets/pause.svg)';
 
 
+        });
+
+        repeat.addEventListener('click', () => {
+            audio.src = this.arr[current_index_song].path;
+            flag = true;
+            audio.play();
+            play.style = ' background-image: url(./assets/pause.svg)';
         })
+
         like.addEventListener('click', () => {
             if (!flag) {
                 like.style = 'background-image: url(./assets/favBtn.svg)';
                 flag = true;
             } else {
                 like.style = 'background-image: url(./assets/Icon.svg)';
+                like.style.width = '25px'
+                like.style.height = '20px'
                 flag = false;
             }
-        })
+        });
 
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressIndicator.style.width = `${progress}%`
+
+            const timeSongMin = Math.floor(audio.currentTime / 60);
+            const timeSongSec = Math.floor(audio.currentTime % 60);
+
+            const min = timeSongMin < 10 ? `0${timeSongMin}` : `${timeSongMin}`
+            const sec = timeSongSec < 10 ? `0${timeSongSec}` : `${timeSongSec}`
+            time.innerHTML = `${min}:${sec}`;
+        });
+
+        progressLine.addEventListener('click', (event) => {
+            audio.currentTime = (event.offsetX / progressLine.clientWidth) * audio.duration;
+        });
     }
 }
 const player = new Player();

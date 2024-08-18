@@ -24,29 +24,29 @@ body {
     background-size: contain;
 }
 
-.wrapper .info {
+.info {
     width: 306px;
     padding: 20px 40px;
 }
 
-.wrapper .info .title {
+.title {
     display: flex;
     justify-content: space-between;
 
 }
 
 
-.wrapper .info .title .artist h1 {
+.title .artist h1 {
     color: #FFF;
     font: 700 18px Inter;
 }
 
-.wrapper .info .title .artist h2 {
+.title .artist h2 {
     color: #696969;
     font: 400 14px Inter;
 }
 
-.wrapper .info .title .img {
+.title .img {
     background-image: url(./assets/spotifyBtn.svg);
     background-repeat: no-repeat;
     width: 20px;
